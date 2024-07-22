@@ -93,4 +93,17 @@ public class ProductController {
         return Result.success(productList);
     }
 
+    /**
+     * Get a product by its barcode
+     */
+    @GetMapping("/{barcode}")
+    public Result getProductByBarcode(@PathVariable String barcode){
+        Product product = productService.getProductByBarcode(barcode);
+        if (product != null) {
+            return Result.success(product);
+        } else {
+            return Result.error("Product not found");
+        }
+    }
+
 }

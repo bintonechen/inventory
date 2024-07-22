@@ -51,4 +51,8 @@ public class ProductService {
         productMapper.insert(product);
         return null;
     }
+
+    public Product getProductByBarcode(String barcode) {
+        return productMapper.selectByProductBarcode(barcode);
+    }
 }
