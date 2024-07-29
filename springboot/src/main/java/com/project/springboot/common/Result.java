@@ -44,5 +44,4 @@ public class Result {
     public static Result error() {
         return new Result(CODE_SYS_ERROR, "System error", null);
     }
-
 }

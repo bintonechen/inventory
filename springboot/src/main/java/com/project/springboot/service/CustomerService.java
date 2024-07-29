@@ -19,6 +19,21 @@ public class CustomerService {
 
     @Autowired CustomerMapper customerMapper;
 
+    public Customer register(Customer customer) {
+        // to check if the customer email already exists
+        Customer databaseCustomerEmail = customerMapper.selectByCustomerEmail(customer.getCustomerEmail());
+        if(databaseCustomerEmail != null){
+            throw new ServiceException("Customer Email already exists. ");
+        }
+        // to check if the customer email already exists
+        Customer databaseCustomerContactNum = customerMapper.selectByCustomerContactNum(customer.getCustomerContactNum());
+        if(databaseCustomerContactNum != null){
+            throw new ServiceException("Customer contact number already exists. ");
+        }
+        customerMapper.insert(customer);
+        return null;
+    }
+
     public void insertCustomer(Customer customer) {
         customerMapper.insert(customer);
     }
@@ -38,20 +53,6 @@ public class CustomerService {
         return customerMapper.selectAll();
     }
 
-    public Customer register(Customer customer) {
-        // to check if the customer email already exists
-        Customer databaseCustomerEmail = customerMapper.selectByCustomerEmail(customer.getCustomerEmail());
-        if(databaseCustomerEmail != null){
-            throw new ServiceException("Customer Email already exists. ");
-        }
-        // to check if the customer email already exists
-        Customer databaseCustomerContactNum = customerMapper.selectByCustomerContactNum(customer.getCustomerContactNum());
-        if(databaseCustomerContactNum != null){
-            throw new ServiceException("Customer contact number already exists. ");
-        }
-        customerMapper.insert(customer);
-        return null;
-    }
 
     public void updateCustomer(Customer customer) {
         customerMapper.update(customer);

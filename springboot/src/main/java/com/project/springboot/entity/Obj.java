@@ -1,6 +1,7 @@
 /**
  * Author: Bintong
  * Date: 2024/7/4 15:52
+ * This class is for testing propose only. Not relevant to the inventory project
  */
 
 package com.project.springboot.entity;

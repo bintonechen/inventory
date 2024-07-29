@@ -2,6 +2,7 @@
  * Purpose: to study HTTP and SpringBoot
  * Author: Bintong
  * Date: 2024/7/4 14:16
+ * * This class is for testing propose only. Not relevant to the inventory project
  */
 
 package com.project.springboot.controller;
